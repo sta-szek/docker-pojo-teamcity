@@ -44,4 +44,4 @@ docker run -p80:${PORT} \
            --name ${SERVICE_NAME} \
            --detach \
            --rm \
-           pojo/${SERVICE_NAME}:latest
+           pojo/docker-pojo-${SERVICE_NAME}:latest

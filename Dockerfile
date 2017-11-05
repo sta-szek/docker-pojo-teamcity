@@ -4,9 +4,11 @@ MAINTAINER Piotr Joński <p.jonski@pojo.pl>
 ARG TEAMCITY_VERSION=2017.1.5
 ARG USER_ID=2000
 ARG USER_NAME=jetbrains
-ENV PORT=8111
 
-RUN apk --update add shadow curl
+ENV PORT=8111
+ENV TEAMCITY_DATA_PATH=/teamcity/.BuildServer
+
+RUN apk --update add shadow curl bash
 
 RUN groupadd --gid ${USER_ID} ${USER_NAME} && \
     useradd --create-home --home-dir /teamcity --uid ${USER_ID} --gid ${USER_NAME} ${USER_NAME} && \
@@ -15,13 +17,11 @@ RUN groupadd --gid ${USER_ID} ${USER_NAME} && \
 USER ${USER_NAME}
 WORKDIR /teamcity
 
-RUN mkdir backups data logs conf temp && \
+RUN mkdir .BuildServer && \
     curl --location "https://download.jetbrains.com/teamcity/TeamCity-${TEAMCITY_VERSION}.tar.gz" > teamcity.tar.gz && \
     tar -xf teamcity.tar.gz && \
     rm -f teamcity.tar.gz && \
     mv TeamCity/* . && \
-    mkdir -p data/lib/jdbc && \
-    curl --location "https://jdbc.postgresql.org/download/postgresql-9.4.1212.jar" > data/lib/jdbc/postgresql-9.4.1212.jar && \
     rm -rf TeamCity && \
     rm -rf devPackage
 

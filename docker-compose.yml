@@ -14,7 +14,7 @@ services:
       - postgres
     cpu_shares: 75
     mem_limit: 1g
-    memswap_limit: 2g
+    memswap_limit: 1g
 
   postgres:
     container_name: postgres
@@ -26,4 +26,4 @@ services:
     restart: always
     cpu_shares: 75
     mem_limit: 512m
-    memswap_limit: 1g
+    memswap_limit: 512m

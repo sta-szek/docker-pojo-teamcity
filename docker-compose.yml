@@ -1,0 +1,29 @@
+version: '2.1'
+services:
+
+
+  teamcity:
+    container_name: teamcity
+    image: pojo/docker-pojo-teamcity:latest
+    ports:
+      - 80:8111
+    volumes:
+      - ./teamcity/.BuildServer:/teamcity/.BuildServer:rw
+    restart: always
+    links:
+      - postgres
+    cpu_shares: 75
+    mem_limit: 1g
+    memswap_limit: 2g
+
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    volumes:
+      - ./postgres/data:/var/lib/postgresql/data
+    restart: always
+    cpu_shares: 75
+    mem_limit: 512m
+    memswap_limit: 1g

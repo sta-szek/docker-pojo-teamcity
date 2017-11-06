@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
 
-SERVICE_NAME=teamcity
 JETBRAINS_USER_NAME=jetbrains
-DIRS_TO_CREATE=(backups conf config data lib logs plugins system temp)
 JETBRAINS_USER_ID=2000
-PORT=8111
 
 # create user if not exist
 if [ $(getent passwd ${JETBRAINS_USER_NAME}) ]; then
@@ -16,45 +13,23 @@ else
 fi
 
 # create directories if not exist
-for item in ${DIRS_TO_CREATE[*]}
-do
-    if [ -d ${SERVICE_NAME}/.BuildServer/${item} ]; then
-        echo "directory ${SERVICE_NAME}/.BuildServer/${item} already exist"
-    else
-        mkdir --mode 770 --verbose --parents ${SERVICE_NAME}/.BuildServer/${item}
-    fi
-done
-
-chmod --recursive 770 ${SERVICE_NAME}
-chown --changes --verbose --recursive ${JETBRAINS_USER_NAME}:pojo ${SERVICE_NAME}
-
-is_running=`docker top docker-pojo-${SERVICE_NAME} &>/dev/null`
-if [ !${is_running} ]; then
-    docker stop docker-pojo-${SERVICE_NAME}
-    sleep 5
+if [ -d teamcity/.BuildServer ]; then
+    echo "directory teamcity/.BuildServer already exist"
+else
+    mkdir --mode 770 --verbose --parents teamcity/.BuildServer/lib/jdbc
+    curl "https://jdbc.postgresql.org/download/postgresql-9.4.1212.jar" -o teamcity/.BuildServer/lib/jdbc/postgresql-9.4.1212.jar
 fi
 
-#run docker
-docker run -p80:${PORT} \
-           -v `pwd`/${SERVICE_NAME}/.BuildServer/backups:/${SERVICE_NAME}/.BuildServer/backups:rw \
-           -v `pwd`/${SERVICE_NAME}/.BuildServer/data:/${SERVICE_NAME}/.BuildServer/data:rw \
-           -v `pwd`/${SERVICE_NAME}/.BuildServer/logs:/${SERVICE_NAME}/.BuildServer/logs:rw \
-           -v `pwd`/${SERVICE_NAME}/.BuildServer/conf:/${SERVICE_NAME}/.BuildServer/conf:rw \
-           -v `pwd`/${SERVICE_NAME}/.BuildServer/temp:/${SERVICE_NAME}/.BuildServer/temp:rw \
-           -v `pwd`/${SERVICE_NAME}/.BuildServer/plugins:/${SERVICE_NAME}/.BuildServer/plugins:rw \
-           --name docker-pojo-${SERVICE_NAME} \
-           --detach \
-           --rm \
-           pojo/docker-pojo-${SERVICE_NAME}:latest
+if [ -d postgres/data ]; then
+    echo "directory postgres/data already exist"
+else
+    mkdir --mode 770 --verbose --parents postgres
+fi
 
-#docker run -p80:8111 \
-#           -v `pwd`/teamcity/.BuildServer/backups:/teamcity/.BuildServer/backups:rw \
-#           -v `pwd`/teamcity/.BuildServer/data:/teamcity/.BuildServer/data:rw \
-#           -v `pwd`/teamcity/.BuildServer/logs:/teamcity/.BuildServer/logs:rw \
-#           -v `pwd`/teamcity/.BuildServer/conf:/teamcity/.BuildServer/conf:rw \
-#           -v `pwd`/teamcity/.BuildServer/temp:/teamcity/.BuildServer/temp:rw \
-#           -v `pwd`/teamcity/.BuildServer/plugins:/teamcity/.BuildServer/plugins:rw \
-#           --name docker-pojo-teamcity \
-#           --detach \
-#           --rm \
-#           pojo/docker-pojo-teamcity:latest
+chmod --recursive 770 teamcity
+chmod --recursive 770 postgres
+chown --changes --verbose --recursive ${JETBRAINS_USER_NAME}:${USER} teamcity
+chown --changes --verbose --recursive ${JETBRAINS_USER_NAME}:${USER} postgres
+
+#run docker
+docker-compose up -d --force-recreate

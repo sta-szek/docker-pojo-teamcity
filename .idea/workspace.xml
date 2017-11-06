@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4cc3cdd4-16f8-4bb7-ba82-409a4dae8031" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" afterPath="$PROJECT_DIR$/docker-compose.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/database.properties" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/run-docker.sh" afterPath="$PROJECT_DIR$/run-docker.sh" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,21 +25,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="run-docker.sh" pinned="false" current-in-tab="false">
+      <file leaf-file-name="run-docker.sh" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/run-docker.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="31" column="68" lean-forward="false" selection-start-line="31" selection-start-column="68" selection-end-line="31" selection-end-column="68" />
+            <state relative-caret-position="358">
+              <caret line="28" column="2" lean-forward="false" selection-start-line="28" selection-start-column="2" selection-end-line="28" selection-end-column="2" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="docker-compose.yml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="database.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="docker-compose.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docker-compose.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+            <state relative-caret-position="504">
+              <caret line="28" column="23" lean-forward="false" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -67,8 +79,8 @@
         <option value="$PROJECT_DIR$/README.MD" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/Dockerfile" />
-        <option value="$PROJECT_DIR$/run-docker.sh" />
         <option value="$PROJECT_DIR$/docker-compose.yml" />
+        <option value="$PROJECT_DIR$/run-docker.sh" />
       </list>
     </option>
   </component>
@@ -112,6 +124,29 @@
               <item name="docker-pojo-teamcity" type="b2602c69:ProjectViewProjectNode" />
               <item name="docker-pojo-teamcity" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="docker-pojo-teamcity" type="b2602c69:ProjectViewProjectNode" />
+              <item name="docker-pojo-teamcity" type="462c0819:PsiDirectoryNode" />
+              <item name="postgres" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="docker-pojo-teamcity" type="b2602c69:ProjectViewProjectNode" />
+              <item name="docker-pojo-teamcity" type="462c0819:PsiDirectoryNode" />
+              <item name="teamcity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="docker-pojo-teamcity" type="b2602c69:ProjectViewProjectNode" />
+              <item name="docker-pojo-teamcity" type="462c0819:PsiDirectoryNode" />
+              <item name="teamcity" type="462c0819:PsiDirectoryNode" />
+              <item name=".BuildServer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="docker-pojo-teamcity" type="b2602c69:ProjectViewProjectNode" />
+              <item name="docker-pojo-teamcity" type="462c0819:PsiDirectoryNode" />
+              <item name="teamcity" type="462c0819:PsiDirectoryNode" />
+              <item name=".BuildServer" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -130,8 +165,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/teamcity/.BuildServer/lib/jdbc" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/teamcity/.BuildServer/lib/jdbc" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -245,12 +280,12 @@
       <option name="presentableId" value="Default" />
       <updated>1509912184347</updated>
       <workItem from="1509912185846" duration="6966000" />
-      <workItem from="1509990542233" duration="2652000" />
+      <workItem from="1509990542233" duration="3748000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9618000" />
+    <option name="totallyTimeSpent" value="10714000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1977" y="-4" width="1863" height="1084" extended-state="6" />
@@ -371,14 +406,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/run-docker.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="31" column="68" lean-forward="false" selection-start-line="31" selection-start-column="68" selection-end-line="31" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="486">
@@ -389,8 +416,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/docker-compose.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+        <state relative-caret-position="504">
+          <caret line="28" column="23" lean-forward="false" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teamcity/.BuildServer/config/database.postgresql.properties.dist">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/teamcity/.BuildServer/config/database.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run-docker.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="28" column="2" lean-forward="false" selection-start-line="28" selection-start-column="2" selection-end-line="28" selection-end-column="2" />
           <folding />
         </state>
       </provider>

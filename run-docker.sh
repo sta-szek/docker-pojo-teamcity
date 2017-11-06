@@ -13,23 +13,25 @@ else
 fi
 
 # create directories if not exist
-if [ -d teamcity/.BuildServer ]; then
-    echo "directory teamcity/.BuildServer already exist"
-else
-    mkdir --mode 770 --verbose --parents teamcity/.BuildServer/lib/jdbc
-    curl "https://jdbc.postgresql.org/download/postgresql-9.4.1212.jar" -o teamcity/.BuildServer/lib/jdbc/postgresql-9.4.1212.jar
-fi
-
 if [ -d postgres/data ]; then
     echo "directory postgres/data already exist"
 else
     mkdir --mode 770 --verbose --parents postgres
 fi
 
+if [ -d teamcity/.BuildServer ]; then
+    echo "directory teamcity/.BuildServer already exist"
+else
+    mkdir --mode 770 --verbose --parents teamcity/.BuildServer/lib/jdbc
+    mkdir --mode 770 --verbose --parents teamcity/.BuildServer/config
+    cp -R database.properties teamcity/.BuildServer/config/database.properties
+    curl "https://jdbc.postgresql.org/download/postgresql-9.4.1212.jar" -o teamcity/.BuildServer/lib/jdbc/postgresql-9.4.1212.jar
+fi
+
 chmod --recursive 770 teamcity
 chmod --recursive 770 postgres
-chown --changes --verbose --recursive ${JETBRAINS_USER_NAME}:${USER} teamcity
-chown --changes --verbose --recursive ${JETBRAINS_USER_NAME}:${USER} postgres
+chown --changes --verbose --recursive ${JETBRAINS_USER_NAME}:pojo teamcity
+chown --changes --verbose --recursive ${JETBRAINS_USER_NAME}:pojo postgres
 
 #run docker
 docker-compose up -d --force-recreate

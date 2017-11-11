@@ -1,4 +1,5 @@
 FROM openjdk:8-alpine
+
 MAINTAINER Piotr Joński <p.jonski@pojo.pl>
 
 ARG TEAMCITY_VERSION=2017.1.5

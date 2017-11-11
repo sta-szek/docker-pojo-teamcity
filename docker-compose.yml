@@ -1,7 +1,6 @@
 version: '2.1'
 services:
 
-
   teamcity:
     container_name: teamcity
     image: pojo/docker-pojo-teamcity:latest
